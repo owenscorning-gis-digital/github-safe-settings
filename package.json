@@ -23,19 +23,19 @@
   "author": "Yadhav Jayaraman",
   "license": "ISC",
   "dependencies": {
-    "@probot/adapter-aws-lambda-serverless": "^3.0.2",
+    "@probot/adapter-aws-lambda-serverless": "^3.0.4",
     "deepmerge": "^4.3.1",
-    "eta": "^3.0.3",
+    "eta": "3.4.0",
     "js-yaml": "^4.1.0",
-    "node-cron": "^3.0.2",
-    "octokit": "^3.1.2",
-    "probot": "^12.3.3"
+    "node-cron": "3.0.3",
+    "octokit": "3.2.1",
+    "probot": "12.4.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^2.0.2",
     "@travi/any": "^2.1.8",
     "check-engine": "^1.10.1",
     "eslint": "^8.46.0",
-    "@eslint/eslintrc": "^2.0.2",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-node": "^11.1.0",
@@ -46,7 +46,7 @@
     "jest-when": "^3.5.2",
     "lockfile-lint": "^4.12.1",
     "nock": "^13.5.4",
-    "nodemon": "^2.0.22",
+    "nodemon": "^3.1.4",
     "npm-run-all": "^4.1.5",
     "smee-client": "^1.2.2",
     "standard": "^17.1.0"
