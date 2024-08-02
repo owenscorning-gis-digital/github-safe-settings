@@ -7,6 +7,7 @@ describe('MergeDeep Test', () => {
   it('CompareDeep extensive test', () => {
     const target = YAML.load(`
 repository:
+  name: test
   # A short description of the repository that will show up on GitHub
   description: description of the repos 
       
@@ -181,7 +182,14 @@ branches:
     }
 
     const ignorableFields = []
-    const mergeDeep = new MergeDeep(log, ignorableFields)
+    const mockReturnGitHubContext = jest.fn().mockReturnValue({
+      request: () => {},
+    });
+    const mergeDeep = new MergeDeep(
+      log,
+      mockReturnGitHubContext,
+      ignorableFields
+    );
     const merged = mergeDeep.compareDeep(target, source)
     console.log(`source ${JSON.stringify(source, null, 2)}`)
     console.log(`target ${JSON.stringify(target, null, 2)}`)
@@ -237,7 +245,14 @@ branches:
       }
   
       const ignorableFields = []
-      const mergeDeep = new MergeDeep(log, ignorableFields)
+      const mockReturnGitHubContext = jest.fn().mockReturnValue({
+        request: () => {},
+      });
+      const mergeDeep = new MergeDeep(
+        log,
+        mockReturnGitHubContext,
+        ignorableFields
+      );
       const merged = mergeDeep.compareDeep(undefined, source)
       console.log(`diffs ${JSON.stringify(merged, null, 2)}`)
       expect(merged.additions).toEqual(expected.additions)
@@ -279,7 +294,14 @@ branches:
         hasChanges: true
       }
       const ignorableFields = []
-      const mergeDeep = new MergeDeep(log, ignorableFields)
+      const mockReturnGitHubContext = jest.fn().mockReturnValue({
+        request: () => {},
+      });
+      const mergeDeep = new MergeDeep(
+        log,
+        mockReturnGitHubContext,
+        ignorableFields
+      );
       const merged = mergeDeep.compareDeep({}, source)
       console.log(`diffs ${JSON.stringify(merged, null, 2)}`)
       expect(merged.additions).toEqual(expected.additions)
@@ -394,7 +416,14 @@ branches:
     }
 
     const ignorableFields = []
-    const mergeDeep = new MergeDeep(log, ignorableFields)
+    const mockReturnGitHubContext = jest.fn().mockReturnValue({
+      request: () => {},
+    });
+    const mergeDeep = new MergeDeep(
+      log,
+      mockReturnGitHubContext,
+      ignorableFields
+    );
     const merged = mergeDeep.compareDeep(target, source)
     console.log(`source ${JSON.stringify(source, null, 2)}`)
     console.log(`target ${JSON.stringify(target, null, 2)}`)
@@ -418,7 +447,14 @@ branches:
     }
 
     const ignorableFields = []
-    const mergeDeep = new MergeDeep(log, ignorableFields)
+    const mockReturnGitHubContext = jest.fn().mockReturnValue({
+      request: () => {},
+    });
+    const mergeDeep = new MergeDeep(
+      log,
+      mockReturnGitHubContext,
+      ignorableFields
+    );
     const merged = mergeDeep.compareDeep(target, source)
     // console.log(`diffs ${JSON.stringify(merged, null, 2)}`)
     expect(merged.additions).toEqual(expected.additions)
@@ -465,7 +501,14 @@ branches:
     }
 
     const ignorableFields = []
-    const mergeDeep = new MergeDeep(log, ignorableFields)
+    const mockReturnGitHubContext = jest.fn().mockReturnValue({
+      request: () => {},
+    });
+    const mergeDeep = new MergeDeep(
+      log,
+      mockReturnGitHubContext,
+      ignorableFields
+    );
     const merged = mergeDeep.compareDeep(target, source)
     // console.log(`diffs ${JSON.stringify(merged, null, 2)}`)
     expect(merged.additions).toEqual(expected.additions)
@@ -492,7 +535,14 @@ branches:
     }
 
     const ignorableFields = []
-    const mergeDeep = new MergeDeep(log, ignorableFields)
+    const mockReturnGitHubContext = jest.fn().mockReturnValue({
+      request: () => {},
+    });
+    const mergeDeep = new MergeDeep(
+      log,
+      mockReturnGitHubContext,
+      ignorableFields
+    );
     const merged = mergeDeep.compareDeep(target, source)
     console.log(`diffs ${JSON.stringify(merged, null, 2)}`)
     expect(merged.additions).toEqual(expected.additions)
@@ -520,7 +570,14 @@ branches:
     }
 
     const ignorableFields = []
-    const mergeDeep = new MergeDeep(log, ignorableFields)
+    const mockReturnGitHubContext = jest.fn().mockReturnValue({
+      request: () => {},
+    });
+    const mergeDeep = new MergeDeep(
+      log,
+      mockReturnGitHubContext,
+      ignorableFields
+    );
     const merged = mergeDeep.compareDeep(target, source)
     console.log(`diffs ${JSON.stringify(merged, null, 2)}`)
     expect(merged.additions).toEqual(expected.additions)
@@ -588,7 +645,14 @@ branches:
     }
 
     const ignorableFields = []
-    const mergeDeep = new MergeDeep(log, ignorableFields)
+    const mockReturnGitHubContext = jest.fn().mockReturnValue({
+      request: () => {},
+    });
+    const mergeDeep = new MergeDeep(
+      log,
+      mockReturnGitHubContext,
+      ignorableFields
+    );
     const merged = mergeDeep.compareDeep(target, source)
     // console.log(`diffs ${JSON.stringify(merged, null, 2)}`)
     expect(merged.additions).toEqual(expected.additions)
@@ -623,7 +687,14 @@ branches:
   
     const expected = JSON.parse(`{"additions":{"x":[{"name":"new","values":{"a":["b"]}}]},"modifications":{"x":[{"values":{"a":["b"]},"name":"default"}]},"hasChanges":true}`)
     const ignorableFields = []
-    const mergeDeep = new MergeDeep(log, ignorableFields)
+    const mockReturnGitHubContext = jest.fn().mockReturnValue({
+      request: () => {},
+    });
+    const mergeDeep = new MergeDeep(
+      log,
+      mockReturnGitHubContext,
+      ignorableFields
+    );
     const merged = mergeDeep.compareDeep(target, source)
     // console.log(`diffs ${JSON.stringify(merged, null, 2)}`)
     expect(merged.additions).toEqual(expected.additions)
@@ -698,7 +769,14 @@ branches:
     }
 
     const ignorableFields = []
-    const mergeDeep = new MergeDeep(log, ignorableFields)
+    const mockReturnGitHubContext = jest.fn().mockReturnValue({
+      request: () => {},
+    });
+    const mergeDeep = new MergeDeep(
+      log,
+      mockReturnGitHubContext,
+      ignorableFields
+    );
     const merged = mergeDeep.compareDeep(target, source)
     //console.log(`diffs ${JSON.stringify(merged, null, 2)}`)
     expect(merged.additions).toEqual(expected.additions)
@@ -742,7 +820,14 @@ entries:
       hasChanges: true
     }
     const ignorableFields = []
-    const mergeDeep = new MergeDeep(log, ignorableFields)
+    const mockReturnGitHubContext = jest.fn().mockReturnValue({
+      request: () => {},
+    });
+    const mergeDeep = new MergeDeep(
+      log,
+      mockReturnGitHubContext,
+      ignorableFields
+    )
     const merged = mergeDeep.compareDeep(target, source)
     console.log(`diffs ${JSON.stringify(merged, null, 2)}`)
     expect(merged).toEqual(expected)
@@ -783,7 +868,14 @@ entries:
       hasChanges: true
     }
     const ignorableFields = []
-    const mergeDeep = new MergeDeep(log, ignorableFields)
+    const mockReturnGitHubContext = jest.fn().mockReturnValue({
+      request: () => {},
+    });
+    const mergeDeep = new MergeDeep(
+      log,
+      mockReturnGitHubContext,
+      ignorableFields
+    );
     const merged = mergeDeep.compareDeep(target, source)
     console.log(`diffs ${JSON.stringify(merged, null, 2)}`)
     expect(merged).toEqual(expected)
@@ -791,7 +883,14 @@ entries:
 
   it('CompareDeep does not mutate source object', () => {
     const ignorableFields = []
-    const mergeDeep = new MergeDeep(log, ignorableFields)
+    const mockReturnGitHubContext = jest.fn().mockReturnValue({
+      request: () => {},
+    });
+    const mergeDeep = new MergeDeep(
+      log,
+      mockReturnGitHubContext,
+      ignorableFields
+    );
     const target = {
       teams: [
         { name: 'developers' },
@@ -813,7 +912,14 @@ entries:
 
   it('CompareDeep produces correct result for arrays of named objects', () => {
     const ignorableFields = []
-    const mergeDeep = new MergeDeep(log, ignorableFields)
+    const mockReturnGitHubContext = jest.fn().mockReturnValue({
+      request: () => {},
+    });
+    const mergeDeep = new MergeDeep(
+      log,
+      mockReturnGitHubContext,
+      ignorableFields
+    );
     const target = {
       teams: [
         { name: 'developers' },
@@ -835,7 +941,14 @@ entries:
   
   it('CompareDeep result has changes when source is empty and target is not', () => {
     const ignorableFields = []
-    const mergeDeep = new MergeDeep(log, ignorableFields)
+    const mockReturnGitHubContext = jest.fn().mockReturnValue({
+      request: () => {},
+    });
+    const mergeDeep = new MergeDeep(
+      log,
+      mockReturnGitHubContext,
+      ignorableFields
+    );
     const target = {
       required_pull_request_reviews: {
         dismissal_restrictions: {
@@ -862,23 +975,30 @@ entries:
   
   it('CompareDeep result has no change when source and target match', () => {
     const ignorableFields = []
-    const mergeDeep = new MergeDeep(log, ignorableFields)
+    const mockReturnGitHubContext = jest.fn().mockReturnValue({
+      request: () => {},
+    });
+    const mergeDeep = new MergeDeep(
+      log,
+      mockReturnGitHubContext,
+      ignorableFields
+    );
     const target = {
       required_pull_request_reviews: {
         dismissal_restrictions: {
           apps: [],
           teams: [],
-          users: [{ login: 'test' }, { login: 'test2' }]
+          users: [{ login: 'test', type: 'User' }, { login: 'test2', type: 'User' }]
         }
       }
     }
-  
+
     const source = {
       required_pull_request_reviews: {
         dismissal_restrictions: {
           apps: [],
           teams: [],
-          users: [{ login: 'test' }, { login: 'test2' }]
+          users: ['test', 'test2']
         }
       }
     }
@@ -889,7 +1009,14 @@ entries:
   
   it('CompareDeep finds modifications on top-level arrays with different ordering', () => {
     const ignorableFields = []
-    const mergeDeep = new MergeDeep(log, ignorableFields)
+    const mockReturnGitHubContext = jest.fn().mockReturnValue({
+      request: () => {},
+    });
+    const mergeDeep = new MergeDeep(
+      log,
+      mockReturnGitHubContext,
+      ignorableFields
+    );
     const target = [
         { username: 'collaborator-1' },
         { username: 'collaborator-2' },
@@ -905,7 +1032,14 @@ entries:
   
   it('CompareDeep does not report changes for matching empty targets', () => {
     const ignorableFields = []
-    const mergeDeep = new MergeDeep(log, ignorableFields)
+    const mockReturnGitHubContext = jest.fn().mockReturnValue({
+      request: () => {},
+    });
+    const mergeDeep = new MergeDeep(
+      log,
+      mockReturnGitHubContext,
+      ignorableFields
+    );
     const target = []
     const source = []
     const result = mergeDeep.compareDeep(target, source)
@@ -944,7 +1078,14 @@ entries:
     }
 
     const ignorableFields = []
-    const mergeDeep = new MergeDeep(log, ignorableFields)
+    const mockReturnGitHubContext = jest.fn().mockReturnValue({
+      request: () => {},
+    });
+    const mergeDeep = new MergeDeep(
+      log,
+      mockReturnGitHubContext,
+      ignorableFields
+    );
     const merged = mergeDeep.compareDeep(target, source)
     console.log(`diffs ${JSON.stringify(merged, null, 2)}`)
     expect(merged.deletions).toEqual(expected.deletions)
@@ -1167,7 +1308,14 @@ entries:
       }
     ] 
     const ignorableFields = ['id', 'node_id', 'default', 'url']
-    const mergeDeep = new MergeDeep(log, ignorableFields)
+    const mockReturnGitHubContext = jest.fn().mockReturnValue({
+      request: () => {},
+    });
+    const mergeDeep = new MergeDeep(
+      log,
+      mockReturnGitHubContext,
+      ignorableFields
+    );
     const merged = mergeDeep.compareDeep(target, source)
     expect(merged.hasChanges).toBeFalsy()
     //console.log(`source ${JSON.stringify(source, null, 2)}`)
